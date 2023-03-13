@@ -5,11 +5,8 @@ const cors = require("cors");
 const app = express();
 //use express.json to get data into json format
 app.use(express.json());
-const PORT = 5500;
 
-DB_CONNECT =
-  "mongodb+srv://trafalgarlaw4790:BM5nizGh8vp7uSE@test.ectcozt.mongodb.net/?retryWrites=true&w=majority";
-// const PORT = process.env.PORT || 5500;
+const PORT = process.env.PORT || 5500;
 
 app.use(cors());
 
