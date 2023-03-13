@@ -9,9 +9,12 @@ function App() {
   const addItem = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:3000/api/item", {
-        item: itemText,
-      });
+      const res = await axios.post(
+        "https://to-do-backend-llbe.onrender.com/api/item",
+        {
+          item: itemText,
+        }
+      );
       setListItems((prev) => [...prev, res.data]);
       setItemText("");
     } catch (err) {
@@ -22,7 +25,9 @@ function App() {
   useEffect(() => {
     const getItemsList = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/items");
+        const res = await axios.get(
+          "https://to-do-backend-llbe.onrender.com/api/items"
+        );
         setListItems(res.data);
         console.log("render");
       } catch (err) {
@@ -34,7 +39,9 @@ function App() {
 
   const deleteItem = async (id) => {
     try {
-      const res = await axios.delete(`http://localhost:3000/api/item/${id}`);
+      const res = await axios.delete(
+        `https://to-do-backend-llbe.onrender.com/api/item/${id}`
+      );
       const newListItems = listItems.filter((item) => item._id !== id);
       setListItems(newListItems);
     } catch (error) {
@@ -45,7 +52,7 @@ function App() {
     e.preventDefault();
     try {
       const res = await axios.put(
-        `http://localhost:3000/api/item/${isUpdating}`,
+        `https://to-do-backend-llbe.onrender.com/${isUpdating}`,
         {
           item: updateItemText,
         }
